@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/cart.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="upper-navbar">
+        <a href="./index.html">
+          <h1>Mind<span>X</span> Store</h1>
+        </a>
+        <form class="search" method="get" action="./search.html">
+          <input type="text" placeholder="Search for products.." name="q" />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="icons"></div>
+      </div>
+      <div
+        class="lower-navbar"
+        onclick="document.querySelector('.lower-navbar').classList.remove('lower-navbar-visible')"
+      >
+        <div onclick="event.stopPropagation()">
+          <div class="header">
+            <h1>Mind<span>X</span> Store</h1>
+            <button
+              onclick="document.querySelector('.lower-navbar').classList.remove('lower-navbar-visible')"
+              id="close-btn"
+            >
+              <i class="fa-solid fa-x"></i>
+            </button>
+          </div>
+          <form class="search" method="get" action="./search.html">
+            <input type="text" placeholder="Search for products.." name="q" />
+            <button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <div>
+            <div class="drop" tabindex="0">
+              <a href="#">Home <i class="fa-solid fa-chevron-down"></i></a>
+              <div class="list">
+                <a class="list-child" href="#">Electronic</a>
+                <a class="list-child" href="#">Fashion</a>
+                <a class="list-child" href="#">Beauty</a>
+              </div>
+            </div>
+            <div class="drop" tabindex="0">
+              <a href="#">Shop <i class="fa-solid fa-chevron-down"></i></a>
+              <div class="list">
+                <a class="list-child" href="#">Shop pages</a>
+                <a class="list-child" href="#">Features</a>
+                <a class="list-child" href="#">Hover style</a>
+              </div>
+            </div>
+            <div class="drop" tabindex="0">
+              <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
+              <div class="list">
+                <a class="list-child" href="#">Shop Page</a>
+                <a class="list-child" href="#">Categories</a>
+                <a class="list-child" href="#">Shopping Cart</a>
+                <a class="list-child" href="#">Wishlist</a>
+                <a class="list-child" href="#">With Video</a>
+              </div>
+            </div>
+            <div class="drop" tabindex="0">
+              <a href="#">Blog <i class="fa-solid fa-chevron-down"></i></a>
+              <div class="list">
+                <a class="list-child" href="#">Blog Standard</a>
+                <a class="list-child" href="#">Blog Grid</a>
+                <a class="list-child" href="#">Blog List</a>
+                <a class="list-child" href="#">Blog Details Full Width</a>
+                <a class="list-child" href="#">Blog Details</a>
+              </div>
+            </div>
+            <div class="hide"><a href="./contact.html">Contact</a></div>
+          </div>
+          <div class="contact">
+            <i class="fa-solid fa-phone" style="color: var(--primary)"></i>
+            <div>
+              <p>Hotline:</p>
+              <p>+123 456 789</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cart-container"></div>
+
+    <footer>
+      <div>
+        <div>
+          <h1>Mind<span>X</span> Store</h1>
+          <p>
+            We are a team of designers and developers that create high quality
+            Website
+          </p>
+          <div class="contacts">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-brands fa-vimeo-v"></i>
+          </div>
+        </div>
+        <div>
+          <h6>My Account</h6>
+          <ul>
+            <li><a href="">Track Orders</a></li>
+            <li><a href="">Shipping</a></li>
+            <li><a href="">Wishlist</a></li>
+            <li><a href="">My Account</a></li>
+            <li><a href="">Order History</a></li>
+            <li><a href="">Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Information</h6>
+          <ul>
+            <li><a href="">Our Story</a></li>
+            <li><a href="">Careers</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="">Latest News</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Talk To Us</h6>
+          <p>Got Questions? Call us</p>
+          <p class="phone">+123 456 789</p>
+          <p><i class="fa-regular fa-envelope"></i> support@mindxstore.com</p>
+          <p><i class="fa-solid fa-location-dot"></i> Hanoi / HCM, VN</p>
+        </div>
+      </div>
+      <section>
+        <p>© 2023 All Rights Reserved</p>
+        <img src="./assets/payment-option.png" alt="" />
+      </section>
+    </footer>
+
+    <script type="module" src="./scripts/layout.js"></script>
+    <script type="module" src="./scripts/cart.js"></script>
+  </body>
+</html>
