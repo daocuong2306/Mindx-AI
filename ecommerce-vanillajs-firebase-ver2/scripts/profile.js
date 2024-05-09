@@ -41,6 +41,11 @@ async function getMedia() {
 // Gửi dữ liệu ảnh đến API
 async function captureImageAndSendToAPI(imageData) {
     try {
+        // Hiển thị biểu tượng tải
+        const loadingIcon = document.createElement('i');
+        loadingIcon.classList.add('fa', 'fa-spinner', 'fa-spin', 'loading-icon');
+        document.querySelector('.content__button').appendChild(loadingIcon);
+
         // Gửi dữ liệu ảnh dưới dạng base64 tới API
         const response = await fetch('https://vietdata-predict-age.hf.space/complete', {
             method: 'POST',
@@ -50,15 +55,17 @@ async function captureImageAndSendToAPI(imageData) {
             body: JSON.stringify({ image: imageData })
         });
 
+        // Xóa biểu tượng tải sau khi nhận phản hồi từ API
+        loadingIcon.remove();
+
         // Xử lý kết quả từ API
         const data = await response.json();
-        console.log(data);
+
         // Cập nhật nội dung HTML với dữ liệu từ API
         const friendsElement = document.querySelector('.content__list li:first-child span');
-
         // Kiểm tra xem phần tử HTML có tồn tại không trước khi cập nhật
         if (friendsElement) {
-            friendsElement.textContent = data // Số lượng bạn bè
+            friendsElement.textContent = data
         } else {
             console.error('Không tìm thấy phần tử HTML để cập nhật.');
         }
@@ -66,6 +73,43 @@ async function captureImageAndSendToAPI(imageData) {
         console.error('Lỗi khi gửi yêu cầu tới API:', error);
     }
 }
+// Gửi dữ liệu ảnh đến API
+async function captureImageAndSendToAPI(imageData) {
+    try {
+        // Hiển thị biểu tượng tải
+        const loadingIcon = document.createElement('i');
+        loadingIcon.classList.add('fa', 'fa-spinner', 'fa-spin', 'loading-icon');
+        document.querySelector('.content__button').appendChild(loadingIcon);
+
+        // Gửi dữ liệu ảnh dưới dạng base64 tới API
+        const response = await fetch('https://vietdata-predict-age.hf.space/complete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ image: imageData })
+        });
+
+        // Xóa biểu tượng tải sau khi nhận phản hồi từ API
+        loadingIcon.remove();
+
+        // Xử lý kết quả từ API
+        const data = await response.json();
+
+        // Cập nhật nội dung HTML với dữ liệu từ API
+        const friendsElement = document.querySelector('.content__list li:first-child span');
+        // Kiểm tra xem phần tử HTML có tồn tại không trước khi cập nhật
+        if (friendsElement) {
+            friendsElement.textContent = data
+        } else {
+            console.error('Không tìm thấy phần tử HTML để cập nhật.');
+        }
+    } catch (error) {
+        console.error('Lỗi khi gửi yêu cầu tới API:', error);
+    }
+}
+
+
 // Thêm sự kiện click để chụp và gửi ảnh đến API
 captureButton.addEventListener('click', captureImage);
 
